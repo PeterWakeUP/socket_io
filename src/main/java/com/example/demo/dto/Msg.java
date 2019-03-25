@@ -11,6 +11,16 @@ public class Msg {
 
     String room;
 
+    public Msg() {
+    }
+
+
+    public Msg(String userName, String content, String room) {
+        this.userName = userName;
+        this.content = content;
+        this.room = room;
+    }
+
     public String getRoom() {
         return room;
     }
