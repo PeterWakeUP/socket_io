@@ -33,14 +33,6 @@ public class MsgHandler {
         client.leaveRoom("");
         client.joinRoom(roomName);
         System.out.println("Connect clientId:" + clientId);
-        /*System.out.println("-----------------------------------");
-        Set<String> rooms = client.getAllRooms();
-        System.out.println("Length:" + rooms.size());
-        Iterator<String> it = rooms.iterator();
-        while (it.hasNext()) {
-            String str = it.next();
-            System.out.println(str);
-        }*/
     }
 
 

@@ -3,18 +3,20 @@
  */
 
 var socket;
-var clientid = parseInt(Math.random()*100+1, 10);
-var name = "player" + clientid;
-var room = "room" + clientid;
+var room;
+var name;
 
 function online() {
-    socket = io.connect("ws://10.100.99.144:10001/chat?clientid="+clientid + "&room=" + room);
+    room = $("#room").val();
+    name = $("#name").val();
+
+    socket = io.connect("ws://10.100.99.144:10001/chat?clientid="+ name + "&room=" + room);
 
     socket.on('connect',function (data) {
-        console.log(data);
         socket.emit('chat',{
             userName:name,
-            content:name+"_online"
+            content:name+"_online",
+            room:room
         })
     })
 
@@ -26,7 +28,7 @@ function online() {
 function chat() {
     socket.emit('chat',{
         userName:name,
-        content:name+"_content",
+        content:$("#content").val(),
         room:room
     })
 }
