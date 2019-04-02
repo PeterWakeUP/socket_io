@@ -16,7 +16,7 @@ public class Server {
 
     public static void main(String[] args) throws Exception{
         Configuration config = new Configuration();
-        config.setHostname("10.100.99.144");
+        config.setHostname("192.168.42.84");
         config.setPort(10001);
         SocketIOServer server = new SocketIOServer(config);
 
