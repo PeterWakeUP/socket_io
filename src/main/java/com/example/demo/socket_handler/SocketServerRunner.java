@@ -24,8 +24,8 @@ public class SocketServerRunner implements CommandLineRunner {
 
 
     @Bean("chatNameSpace")
-    public SocketIONamespace getChatSocketIONamespace(){
-        chatSocketIONamespace.addListeners(new MsgHandler(socketIOServer));
+    public SocketIONamespace getChatSocketIONamespace(SocketIOServer server){
+        chatSocketIONamespace.addListeners(new MsgHandler(server));
         return chatSocketIONamespace;
     }
 
