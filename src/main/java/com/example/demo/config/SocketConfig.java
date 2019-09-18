@@ -21,8 +21,8 @@ public class SocketConfig {
     public SocketIOServer socketIOServer() {
         com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
         //不设置主机、默认绑定0.0.0.0 or ::0
-        config.setHostname("192.168.42.84");
-        config.setPort(10001);
+        config.setHostname(ip);
+        config.setPort(port);
 
         //该处进行身份验证h
         config.setAuthorizationListener(handshakeData -> {
