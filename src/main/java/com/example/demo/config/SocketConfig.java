@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.annotation.SpringAnnotationScanner;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,12 +12,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SocketConfig {
 
+    @Value("${socket.server.ip}")
+    private String ip;
+    @Value("${socket.server.port}")
+    private int port;
+
     @Bean
     public SocketIOServer socketIOServer() {
         com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
         //不设置主机、默认绑定0.0.0.0 or ::0
-        config.setHostname("10.100.99.144");
-        config.setPort(10001);
+        config.setHostname(ip);
+        config.setPort(port);
 
         //该处进行身份验证h
         config.setAuthorizationListener(handshakeData -> {
