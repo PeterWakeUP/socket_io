@@ -47,4 +47,8 @@ public class MsgHandler {
         String roomName = client.getHandshakeData().getSingleUrlParam("room");
         socketIOServer.getNamespace("/chat").getRoomOperations(roomName).sendEvent("chat", data);
     }
+
+    public static void main(String[] args){
+        System.out.println("Hello World");
+    }
 }
